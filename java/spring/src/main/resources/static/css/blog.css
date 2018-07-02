@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css?family=Oxygen");
+
+body {
+    padding: 20px;
+}
+
+form {
+    text-align: center;
+}
+
+.message-list {
+    padding-left: 10px;
+    font-family: Oxygen, sans-serif;
+}
+
+.message-list p {
+    font-size: 17px
+}

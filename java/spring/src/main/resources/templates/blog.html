@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{css/blog.css}"/>
+    <title>My Blog</title>
+</head>
+<body>
+<form method="post" th:object="${message}">
+    <p>nick: <input type="text" th:field="*{nick}"/></p>
+    <p>title: <input type="text" th:field="*{title}"/></p>
+    <p>text: <textarea th:field="*{text}"></textarea></p>
+    <p><input type="submit" value="Submit"/></p>
+</form>
+
+<div class="message-list">
+    <div th:each="message : ${messageList}">
+        <hr/>
+        <h4>
+            <span th:text="${#dates.format(message.date, 'dd MMMM yyyy')}"
+                  class="text-uppercase"></span>
+            - <span th:text="${message.nick}"></span>
+        </h4>
+        <h1 th:text="${message.title}"></h1>
+        <p th:text="${message.text}"></p>
+    </div>
+</div>
+</body>
+</html>
